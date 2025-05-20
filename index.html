@@ -1,0 +1,66 @@
+<!-- Bulb Example -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bulb Example</title>
+  <style>
+    .bulb-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .bulb {
+      width: 80px;
+      height: 120px;
+      background: #eee;
+      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+      position: relative;
+      box-shadow: 0 0 30px 5px #ccc;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .bulb.on {
+      background: #fff700;
+      box-shadow: 0 0 60px 20px #fff700, 0 0 30px 5px #ccc;
+    }
+    .bulb::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: -25px;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 40px;
+      background: #888;
+      border-radius: 10px;
+    }
+    .switch-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #1C3879;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .switch-btn:hover {
+      background: #607EAA;
+    }
+  </style>
+</head>
+<body>
+  <div class="bulb-container">
+    <div id="bulb" class="bulb"></div>
+    <button class="switch-btn" onclick="toggleBulb()">Toggle Bulb</button>
+  </div>
+  <script>
+    function toggleBulb() {
+      document.getElementById('bulb').classList.toggle('on');
+    }
+  </script>
+</body>
+</html>
